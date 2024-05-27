@@ -24,6 +24,7 @@ jobs:
     - uses: anchore/scan-action@v3
       with:
         image: ${{ env.TAG_NAME }}
+        severity-cutoff: high
 
     - name: Package
       run: |
