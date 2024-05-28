@@ -3,6 +3,8 @@ name: Distro
 on:
   workflow_dispatch:
   push:
+    tags-ignore:
+      - 'v*.*.*'
 
 env:
   TAG_NAME: ${{ format('wslvpnkit:{0}-{1}', github.sha, github.run_number) }}
