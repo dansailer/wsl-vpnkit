@@ -35,17 +35,22 @@ jobs:
           docker export $CONTAINER_ID | gzip > wsl-vpnkit.tar.gz
           sha256sum wsl-vpnkit.tar.gz | tee wsl-vpnkit.tar.gz.sha256
           ls -la wsl-vpnkit.tar.gz
-      
+
       - name: Release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ github.ref_name }}
-          name: Release ${{ github.ref_name }}
-          repository: ${{ github.repository }}
-          draft: false
-          prerelease: false
-          generate_release_notes: false
-          make_latest: true
-          files: |
-            wsl-vpnkit.tar.gz
-            wsl-vpnkit.tar.gz.sha256
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: >-
+          gh release create ${{ github.ref_name }} wsl-vpnkit.tar.gz* --generate-notes    
+      # - name: Release
+      #   uses: softprops/action-gh-release@v2
+      #   with:
+      #     tag_name: ${{ github.ref_name }}
+      #     name: Release ${{ github.ref_name }}
+      #     repository: ${{ github.repository }}
+      #     draft: false
+      #     prerelease: false
+      #     generate_release_notes: false
+      #     make_latest: true
+      #     files: |
+      #       wsl-vpnkit.tar.gz
+      #       wsl-vpnkit.tar.gz.sha256
