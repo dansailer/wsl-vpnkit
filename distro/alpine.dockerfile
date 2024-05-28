@@ -14,7 +14,7 @@ RUN apk update && \
 WORKDIR /app
 COPY --from=gvisor-tap-vsock /app/bin/gvforwarder ./wsl-gvforwarder
 COPY --from=gvisor-tap-vsock /app/bin/gvproxy-windows.exe ./wsl-gvproxy.exe
-COPY ./wsl-vpnkit ./wsl-vpnkit.service ./
+COPY ./wsl-vpnkit ./wsl-vpnkit.service ./service-start.sh ./
 COPY ./distro/wsl.conf /etc/wsl.conf
 ARG REF=https://example.com/
 ARG VERSION=v0.0.0
