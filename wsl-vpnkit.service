@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 ExecStart=/mnt/c/Windows/system32/wsl.exe -d wsl-vpnkit --cd /app /app/service-start.sh
-ExecStop=/mnt/c/Windows/system32/wsl.exe terminate wsl-vpnkit
+# ExecStop=/mnt/c/Windows/system32/wsl.exe terminate wsl-vpnkit
 
 Restart=always
 KillMode=mixed
