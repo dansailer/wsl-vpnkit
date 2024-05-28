@@ -39,8 +39,9 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref }}
-          name: Release ${{ github.ref }}
+          tag_name: ${{ replace(github.ref, 'refs/tags/', '') }}
+          name: Release ${{ replace(github.ref, 'refs/tags/', '') }}
+          repository: ${{ github.repository }}
           draft: false
           prerelease: false
           generate_release_notes: false
