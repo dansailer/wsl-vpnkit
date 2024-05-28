@@ -40,7 +40,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: >-
-          gh release create ${{ github.ref_name }} wsl-vpnkit.tar.gz* --generate-notes    
+          gh repo set-default ${{ github.repository }}
+          gh release create  ${{ github.ref_name }} './wsl-vpnkit.tar.gz*#WSL Distro' --generate-notes --latest=true
       # - name: Release
       #   uses: softprops/action-gh-release@v2
       #   with:
