@@ -3,12 +3,8 @@ Description=wsl-vpnkit
 After=network.target
 
 [Service]
-# for wsl-vpnkit setup as a distro
-ExecStart=/mnt/c/Windows/system32/wsl.exe -d wsl-vpnkit --cd /app wsl-vpnkit
-
-# for wsl-vpnkit setup as a standalone script
-#ExecStart=/full/path/to/wsl-vpnkit
-#Environment=VMEXEC_PATH=/full/path/to/wsl-gvforwarder GVPROXY_PATH=/full/path/to/wsl-gvproxy.exe
+ExecStart=/mnt/c/Windows/system32/wsl.exe -d wsl-vpnkit --cd /app /app/service-start.sh
+ExecStop=/mnt/c/Windows/system32/wsl.exe terminate wsl-vpnkit
 
 Restart=always
 KillMode=mixed
