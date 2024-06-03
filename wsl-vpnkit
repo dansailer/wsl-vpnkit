@@ -9,7 +9,7 @@ VPNKIT_LOCAL_IP=${VPNKIT_LOCAL_IP:-192.168.127.2}
 TAP_MAC_ADDR=${TAP_MAC_ADDR:-5a:94:ef:e4:0c:ee}
 
 # overrideable with env
-VMEXEC_PATH=${VMEXEC_PATH:-/app/wsl-vm}
+VMEXEC_PATH=${VMEXEC_PATH:-/app/wsl-gvforwarder}
 GVPROXY_PATH=${GVPROXY_PATH:-/app/wsl-gvproxy.exe}
 TAP_NAME=${TAP_NAME:-wsltap}
 CHECK_HOST=${CHECK_HOST:-example.com}
